@@ -1,26 +1,31 @@
-'# cluster_assembler
+# cluster_assembler
 
-This is a WIP project for QTNano`s cluster-ligands assembling proseadure. Contributions ongoing.
+This is a WIP project for QTNano's cluster-ligands assembling proseadure. Contributions ongoing.
 
 
-# From Karla
+## General Process for Nanoclusters Generation
 
-1) Geração dos cores: 1.1Permutação e ou 1. 2Abc_gen
+1. Core generation that can be performed via
+ 	- Permutation
+ 	- ABCluster
 
-2) Filtro de conectividade (se principalmente os cores virem do Abc_gen)
+2. Connectivity test to exclude systems that not correspond to the expect number of metalic atoms
 
-3) K-means
+3. K-means clustering to select relevant cores to use
 
-4) Distribuição dos ligantes
+4. Ligands distribution around the metalic core
 
-5) Filtro de overlapping
+5. Overlap Filter 
 
-6) K-means
+6. K-means selection of nanoclusters to optimize via DFT
 
-7) DFT-light1
+7. DFT optimization with light/weak criteria
 
-8) Filtro de conectividade
+8. Donnectivity verification to check if any chemical bond was made or broken during DFT optimization
 
-9) K-means
+9. K-means  selection of nanoclusters to post optimization via DFT
 
-10) DFT-tight
+10. DFT optimization with tight/strong criteria
+
+
+Steps 7 and 10 most be done externaly, and can be automated using appropriate quantuym chemistry software. The other steps can be done using the tools we provide here.
