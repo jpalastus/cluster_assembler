@@ -28,7 +28,12 @@ This is a WIP project for QTNano's cluster-ligands assembling proseadure. Contri
 10. DFT optimization with tight/strong criteria
 
 
-Steps 7 and 10 most be done externaly, and can be automated using appropriate quantuym chemistry software. The other steps can be done using the tools we provide here.
+Steps 7 and 10 most be done externaly, and can be automated using appropriate quantuym chemistry software. 
 
+This steps can be done using:
+```
+python main.py 1 10
+```
+1 and 10 in this command can be changed to the appropriate interval of tasks on the list above.
 
 ##NOTE: 3-10 ARE IN HOUSE CODES, NOT HERE YET...
