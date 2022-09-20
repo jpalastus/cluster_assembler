@@ -32,7 +32,7 @@ if 1 in list:
 	if int(option)==1:
 		adress=input("Type the adress: ")
 	if int(option)==2:
-		os.system("python core/abcluster_submission.py ")
+		os.system("python core/abcluster_submission.py cube")
 		
 	if int(option)<1 or int(option)>2:
 		exit("Invalid input...")
