@@ -30,6 +30,7 @@ This is a WIP project for QTNano's cluster-ligands assembling proseadure. Contri
 
 Steps 7 and 10 most be done externaly, and can be automated using appropriate quantuym chemistry software. 
 
+## How to run: 
 This steps can be done using:
 ```
 python main.py 1 10
