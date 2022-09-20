@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N ligand_distributor
+#PBS -e opt.err
+#PBS -o opt.o
+#PBS -q workq
+#PBS -l nodes=1:ppn=10
+#PBS -l walltime=48:00:00
+export I_MPI_FABRICS=shm
+
+module load gcc/5.5
+source /opt/intel/parallel_studio_xe_2020.0.088/psxevars.sh
+
+
+export OMP_NUM_THREADS=1
+cd $PBS_O_WORKDIR
+
+
+python3 ligand_distributor3.py geo cps.xyz 8 3.5 co2_angular.xyz 0 3.5 30000 
+
+module purge

@@ -1,0 +1,40 @@
+#!/bin/bash
+#PBS -N KMns
+#PBS -e KM49.err
+#PBS -o KM49.o
+#PBS -q workq
+#PBS -l nodes=1:ppn=10
+#PBS -l walltime=48:00:00
+
+pasta=Al49Zn6
+module load gcc/5.5
+
+export OMP_NUM_THREADS=10
+export I_MPI_FABRICS=shm
+
+cd $PBS_O_WORKDIR
+
+date
+
+mkdir /tmp/$PBS_JOBID
+cp * /tmp/$PBS_JOBID/.
+cp -r $pasta /tmp/$PBS_JOBID/.
+date
+
+cd /tmp/$PBS_JOBID
+
+which python3
+python3 silscript.py 1 $pasta 30
+
+date
+
+cp * $PBS_O_WORKDIR/.
+cp -r $pasta/selected* $PBS_O_WORKDIR/.
+cd ../
+rm -r $PBS_JOBID
+
+
+date
+
+cd  $PBS_O_WORKDIR
+module purge
