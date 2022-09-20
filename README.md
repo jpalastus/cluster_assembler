@@ -37,4 +37,4 @@ python main.py 1 10
 ```
 1 and 10 in this command can be changed to the appropriate interval of tasks on the list above.
 
-##NOTE: 3-10 ARE IN HOUSE CODES, NOT HERE YET...
+*NOTE: 3-10 ARE IN HOUSE CODES, NOT HERE YET...*
