@@ -9,8 +9,9 @@ import matplotlib.pyplot as plt
 if len(sys.argv) != 3:
     print("\nUsage: \n")
     print("\t\t$ python main.py 1 10 \n\n")
-    print("1 and 10 represent the initial end final step you whant to execute.")
-    print("Steps 7 and 10 will stop the code and call for external intervention.")
+    print("- 1 and 10 represent the initial end final step you whant to execute.")
+    print("- Steps 7 and 10 will stop the code and call for external intervention.")
+    print("- The work folder most me the provided cluster_assembler (or a copy).")
     exit()
 
 start=int(sys.argv[1])
@@ -32,7 +33,14 @@ if 1 in list:
 	if int(option)==1:
 		adress=input("Type the adress: ")
 	if int(option)==2:
+		print("The submission script in cluster_assembler/core/job.pbs will be executed now.")
+		print("The version originaly there was set for very speciffic computational facility,")
+		print("and probably will need some adaptations to be runned at other machines.\n")
+		cont=input("If the script is set, press any key to continue...")
 		os.system("python core/abcluster_submission.py cube")
+		adress="XXXXXXXXXXXXXXXXXXXX"
+		print("\nBefore you continue, check "+adress+" to see if all XYZ have been generated.")
+		cont=input("If yes, press any key to continue...")
 		
 	if int(option)<1 or int(option)>2:
 		exit("Invalid input...")
@@ -41,7 +49,7 @@ if 1 in list:
 #2. Connectivity test to exclude systems that not correspond to the expect number of metalic atoms
 if 2 in list:
 	print("2. Connectivity test:")
-	os.system("python  core/connectivity.py")
+	os.system("python  core/connectivity.py "+adress)
 
 
 #3. K-means clustering to select relevant cores to use
