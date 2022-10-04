@@ -1,41 +1,31 @@
 import os
 import sys
+import glob
+import time
 
-NUM=9
+print("\n\n --- AUTOMATION OF ABCLUSTER USAGE --- ")
+print("ATENTION: Some HPC centers have laws against scripts that submit jobs.")
+cont=input("Type 'YES' if you want to continue: ")
+if cont /= "YES":
+	exit("Leaving...")
 
-################### CUBE
-for k in range(0,NUM+1):
-	Type=str(sys.argv[1]+str(k))
-	os.system("cd "+Type+"&& qsub job.pbs")
-###################
+os.system("mkdir all_xyz")
+print("Prepare folder for each execution inside 'core'. The folders most contain a adapted copy of job.pbs and abcluster.inp.")
+cont=input("What name you put on the output file (first entry on the ABCLUSTER input):")
 
+#Run it Local
+i=1
+for folder in glob.glob("core/*/"):
+	os.system("cd "+folder+"&& ./job.sh ")
+	os.system("cd "+folder+cont+"_LM/ && for file in *.xyz; do cp $file ../../../all_xyz/"+str(i)+"$file; done")
+	i=i+1
 
-
-"""
-################### SPHERE
-for k in range(1,NUM+1):
-	Type='sphere'+str(k)
-	os.system("qsub "+Type+'/job.pbs')
-###################
-
-
-################### LINE
-for k in range(1,NUM+1):
-	Type='line'+str(k)
-	os.system("qsub "+Type+'/job.pbs')
-###################
-
-
-################### PLANE
-for k in range(1,NUM+1):
-	Type='plane'+str(k)
-	os.system("qsub "+Type+'/job.pbs')
-###################
-
-
-################### RING
-for k in range(1,NUM+1):
-	Type='ring'+str(k)
-	os.system("qsub "+Type+'/job.pbs')
-###################
-"""
+	
+#Run in cluster
+for folder in glob.glob("core/*/"):
+	os.system("cd "+folder+"&& qsub job.pbs")
+time.sleep(3600)  # tune this value so the cluster waits the computations finish 
+i=1
+for folder in glob.glob("core/*/"):
+	os.system("cd "+folder+cont+"_LM/ && for file in *.xyz; do cp $file ../../../all_xyz/"+str(i)+"$file; done")
+	i=i+1
