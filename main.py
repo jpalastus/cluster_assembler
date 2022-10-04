@@ -38,9 +38,8 @@ if 1 in list:
 		print("and probably will need some adaptations to be runned at other machines.\n")
 		cont=input("If the script is set, press any key to continue...")
 		os.system("python core/abcluster_submission.py cube")
-		adress="XXXXXXXXXXXXXXXXXXXX"
-		print("\nBefore you continue, check "+adress+" to see if all XYZ have been generated.")
-		cont=input("If yes, press any key to continue...")
+		adress="all_xyz"
+		
 		
 	if int(option)<1 or int(option)>2:
 		exit("Invalid input...")
@@ -50,7 +49,8 @@ if 1 in list:
 if 2 in list:
 	print("2. Connectivity test:")
 	os.system("python  core/connectivity.py "+adress)
-
+	print("\nBefore you continue, check filter_result to see if all XYZ have been processed.")
+	cont=input("If yes, press any key to continue...")
 
 #3. K-means clustering to select relevant cores to use
 if 3 in list:
