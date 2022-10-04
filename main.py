@@ -28,14 +28,25 @@ if start<1 or end>10 or start>end:
 if 1 in list:
 	print("1. Metalic Core Generation:")
 	print("\t 1 - Already generated using external source.")
-	print("\t 2 - Generate now via abcluster.\n")
+	print("\t 2 - Generate now via abcluster [advanced].\n")
 	option = input("Type your option: ")
 	if int(option)==1:
 		adress=input("Type the adress: ")
 	if int(option)==2:
-		print("The submission script in cluster_assembler/core/job.pbs will be executed now.")
-		print("The version originaly there was set for very speciffic computational facility,")
-		print("and probably will need some adaptations to be runned at other machines.\n")
+		print("""
+##############################################################################
+##  Autor comments:                                                         ##
+##   ABCluster is a very usifull tool that needs some training to be used.  ##
+##  We strogly recomend the user to visit                                   ##
+##                 http://www.zhjun-sci.com/abcluster/doc/                  ##
+##  and try to unsderstand exactly how the program works, how to install it ##
+##  and to run some tests before using it here                              ##
+##  We thank Zhang's group for making this incredible tool available or the ##
+##  materials community!                                                    ##
+##############################################################################""")
+		print("\nThe submission script in cluster_assembler/core/job.pbs will be executed now.")
+		print("The version originaly there was set for a very specific computational facility,")
+		print("and probably will need some in house adaptations to be runned.\n")
 		cont=input("If the script is set, press any key to continue...")
 		os.system("python core/abcluster_submission.py cube")
 		adress="all_xyz"
