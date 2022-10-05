@@ -44,12 +44,12 @@ if 1 in list:
 ##  We thank Zhang's group for making this incredible tool available or the ##
 ##  materials community!                                                    ##
 ##############################################################################""")
-		os.system("cd core && python abcluster_unary.py")
+		os.system("cd core && python3 abcluster_unary.py")
 		print("\nThe submission script in cluster_assembler/core/job.pbs will be executed now.")
 		print("The version originaly there was set for a very specific computational facility,")
 		print("and probably will need some in house adaptations to be runned.\n")
 		cont=input("If the script is set, press any key to continue...")
-		os.system("python core/abcluster_submission.py cube")
+		os.system("python3 core/abcluster_submission.py cube")
 		adress="all_xyz"
 		
 		
@@ -60,7 +60,7 @@ if 1 in list:
 #2. Connectivity test to exclude systems that not correspond to the expect number of metalic atoms
 if 2 in list:
 	print("2. Connectivity test:")
-	os.system("python  core/connectivity.py "+adress)
+	os.system("python3  core/connectivity.py "+adress)
 	print("\nBefore you continue, check filter_result to see if all XYZ have been processed.")
 	cont=input("If yes, press any key to continue...")
 
@@ -69,7 +69,7 @@ if 3 in list:
 	print("3. K-means clustering to select relevant cores to use:")
 	if adress != "all_xyz":
 		os.system("mv "+adress+" all_xyz ")
-	os.system("python  core/clustering.py")
+	os.system("python3  core/clustering.py")
 	
 #4. Ligands distribution around the metalic core
 if 4 in list:
