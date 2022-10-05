@@ -108,7 +108,7 @@ for i in list_subfolders:
                 pass
             else:   
                 ee=float(ee)
-                mol=read(file)
+                mol=read(os.path.join(i, c))
                 cutOff = neighborlist.natural_cutoffs(mol)
                 neighborList = neighborlist.NeighborList(cutOff, self_interaction=False, bothways=True)
                 neighborList.update(mol)
