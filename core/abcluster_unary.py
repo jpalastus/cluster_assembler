@@ -1,14 +1,37 @@
 import os
 
-MNUMCALC='200'
-el1='Cu'
-n1='3'
-el2='Zn'
-n2='4'
-NUM=9
-Cube=" 3 3 3"
-Plane=" 3 3"
+print("\n\n --- AUTOMATIC ABCLUSTER INPUTS BUILDER --- ")
+print("ATENTION: Some HPC centers have laws against scripts that submit jobs.")
+cont=input("Type 'YES' if you want to continue: ")
+if cont != "YES":
+	exit("Leaving...")
+	
+print("\n\n --- Parameters --- ")
+print("ATENTION: Some HPC centers have laws against scripts that submit jobs.")	
+NUMCALC=int(input("MNUMCALC= "))
+el1=input("el1= ")
+n1=input("n1= ")
+el2=input("el2= ")
+n2=input("n2= ")
+NUM=int(input("NUM= "))
+Cube=input("Cube= ")
+Plane=input("Plane= ")
+#MNUMCALC='200'
+#el1='Cu'
+#n1='3'
+#el2='Zn'
+#n2='4'
+#NUM=9
+#Cube=" 3 3 3"
+#Plane=" 3 3"
 
+
+
+print("\n\n --- Writting the inputs... --- ")
+print("ATENTION: Check if the computatiom method scripted in abcluster.inp is approprieate for your aplication.")
+cont=input("Type 'YES' if you want to continue: ")
+if cont != "YES":
+	exit("Leaving...")
 
 FNAME=str(el1)+str(n1)+str(el2)+str(n2)
 COMPOSITION=str(el1)+' '+str(n1)+' '+str(el2)+' '+str(n2)
