@@ -44,6 +44,7 @@ if 1 in list:
 ##  We thank Zhang's group for making this incredible tool available or the ##
 ##  materials community!                                                    ##
 ##############################################################################""")
+		os.system("cd core && python abcluster_unary.py")
 		print("\nThe submission script in cluster_assembler/core/job.pbs will be executed now.")
 		print("The version originaly there was set for a very specific computational facility,")
 		print("and probably will need some in house adaptations to be runned.\n")
