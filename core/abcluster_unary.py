@@ -8,7 +8,7 @@ if cont != "YES":
 	
 print("\n\n --- Parameters --- ")
 print("ATENTION: Some HPC centers have laws against scripts that submit jobs.")	
-MNUMCALC=int(input("MNUMCALC= "))
+MNUMCALC=input("MNUMCALC= ")
 el1=input("el1= ")
 n1=input("n1= ")
 el2=input("el2= ")
