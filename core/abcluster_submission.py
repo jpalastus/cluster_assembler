@@ -10,7 +10,7 @@ if cont != "YES":
 	exit("Leaving...")
 
 os.system("mkdir all_xyz")
-print("Prepare folder for each execution inside 'core'. The folders most contain a adapted copy of job.pbs and abcluster.inp.")
+#print("Prepare folder for each execution inside 'core'. The folders most contain a adapted copy of job.pbs and abcluster.inp.")
 cont=input("What name you put on the output file (first entry on the ABCLUSTER input):")
 
 ###Run it Local
