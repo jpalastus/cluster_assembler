@@ -165,11 +165,11 @@ c=[]
 for i in unique:
     a=[]
     a=i.split("/")
-    b.append(str(a[-3])+"_"+str(a[-1]))
+    #b.append(str(a[-3])+"_"+str(a[-1]))
     c.append(str(a[-1]))
 print(len(unique))
 os.system("mkdir selected")
 for i in range(len(unique)):
-    copyfile(str(unique[i]), 'selected/'+str(b[i]))
+    copyfile(str(unique[i]), 'selected/'+str(c[i]))
 
 
