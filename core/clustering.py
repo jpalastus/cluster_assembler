@@ -22,8 +22,11 @@ from ase.io import read
 from scipy import sparse
 import math as m
 
-tresh=2*m.sqrt(11+6)*0.1
-element="Cu11Zn6"
+#tresh=2*m.sqrt(11+6)*0.1
+#element="Cu11Zn6"
+element=input("Chemical formula of the nanocluster:")
+n=input("Number of atoms on this cluster:")
+tresh=2*m.sqrt(int(n))*0.1
 
 def xyzRead(fname):
     fin = open(fname, "r")
@@ -83,13 +86,14 @@ NAME=[]
 ENERGY=[]
 
 path=os.getcwd()
-list_subfolders = [f.path for f in os.scandir(path) if f.is_dir()]
+direc=input("Name of filtered structures directory:")
+list_subfolders = [direc]#[f.path for f in os.scandir(path) if f.is_dir()]
 print(list_subfolders)
 for i in list_subfolders:    
     if "selected*" in i:
         pass
     else:
-        i=str(i)+"/"+str(element)+"-LM"
+        i=str(i)
         o = [f for f in listdir(i) if isfile(join(i, f))]
         o.sort()
         for b in o:
