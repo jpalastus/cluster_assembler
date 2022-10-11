@@ -5,15 +5,13 @@ import sys
 import os
 
 print(sys.argv)
-if len(sys.argv) != 11:
-	print("Wrong number of parameters");
-	print("\nUsage: \n")
-	print("\t$ ./script input_xyz mes.xyz num_particles1 min_dist1 cps.xyz num_particles2 min_dist2 num_samples \n\n");
-	print("\t python3 ligand_distributor3.py mes.xyz 5 3.5 cp.xyz 2 2.6 10\n");
-	print("\t i.e. $ python3 ligand_distributor3.py opt mes.xyz 0 2.7 cp.xyz 5 2.7 100000 \n");
-
-
-	exit();
+#if len(sys.argv) != 11:
+#	print("Wrong number of parameters");
+#	print("\nUsage: \n")
+#	print("\t$ ./script input_xyz mes.xyz num_particles1 min_dist1 cps.xyz num_particles2 min_dist2 num_samples \n\n");
+#	print("\t python3 ligand_distributor3.py mes.xyz 5 3.5 cp.xyz 2 2.6 10\n");
+#	print("\t i.e. $ python3 ligand_distributor3.py opt mes.xyz 0 2.7 cp.xyz 5 2.7 100000 \n");
+#	exit();
 
 
 import numpy as np
