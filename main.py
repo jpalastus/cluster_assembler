@@ -95,12 +95,20 @@ if 4 in list:
 #5. Overlap Filter
 if 5 in list:
 	print("5. Overlap Filter")
-	exit("WIP...")
+	os.system("cd geom && python3 ../filters/overlapping.py")
+	os.system("cp -r geom/filtered filtered_step_5")
+	print("\nBefore continuing, check filtered_step_5 to see if all XYZ have been processed.")
+	cont=input("If yes, press any key to continue...")
 
 #6. K-means selection of nanoclusters to optimize via DFT
 if 6 in list:
 	print("6. K-means selection of nanoclusters to optimize via DFT")
-	exit("WIP...")
+	inp1=input("Inform the folder with the result from the Overlap Filter (standard name is filtered_step_5):")
+	inp2=input("Inform how many representative structures to select:")
+	os.system("cp filters/kmeans/* .")
+	os.system("python3 silscript.py 1 "+inp1+" "+inp2)
+	os.system("mv "+inp1+"/selected_"+inp1+" to_dft_light")
+	os.system("rm -rf job_kmeans_new mol.txt silscript.py tools.py")
 
 #7. DFT optimization with light/weak criteria
 if 7 in list:
