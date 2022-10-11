@@ -70,7 +70,7 @@ if __name__ == "__main__":
 		xyz = readFile(file)
 		if is_overlapping(xyz, t, cov):
 			kk+=1
-			os.system('rm '+str(file))
+			#os.system('rm '+str(file))
 #			print("Molecule with overlapping.")
 		else:
 			os.system('mv '+str(file)+' filtered')
