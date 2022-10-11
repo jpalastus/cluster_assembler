@@ -4,7 +4,8 @@ from glob import glob
 import sys
 import os
 
-if len(sys.argv) > 10:
+print(sys.argv)
+if len(sys.argv) != 11:
 	print("Wrong number of parameters");
 	print("\nUsage: \n")
 	print("\t$ ./script input_xyz mes.xyz num_particles1 min_dist1 cps.xyz num_particles2 min_dist2 num_samples \n\n");
