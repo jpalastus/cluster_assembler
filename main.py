@@ -121,7 +121,8 @@ if 4 in list:
 #5. Overlap Filter
 if 5 in list:
 	print("5. Overlap Filter")
-	os.system("cd geom && python3 ../filters/overlapping.py")
+	os.system("cp filters/overlapping.py geom/.")
+	os.system("cd geom && python3 overlapping.py")
 	os.system("cp -r geom/filtered filtered_step_5")
 	print("\nBefore continuing, check filtered_step_5 to see if all XYZ have been processed.")
 	cont=input("If yes, press any key to continue...")
