@@ -24,12 +24,12 @@ baseFolder.sort()
 
 inputMol2 = sys.argv[2]
 num_p1= int(sys.argv[3])
-where1 = str(sys.argv[4])
-min_dist2 = float(sys.argv[5])
+where1 = str(sys.argv[5])
+min_dist2 = float(sys.argv[4])
 inputMol3 = sys.argv[6]
 num_p2 = int(sys.argv[7])
-where2 = str(sys.argv[8])
-min_dist1 = float(sys.argv[9])
+where2 = str(sys.argv[9])
+min_dist1 = float(sys.argv[8])
 num_samples = int(sys.argv[10])
 
 
