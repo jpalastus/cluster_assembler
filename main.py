@@ -119,9 +119,13 @@ if 7 in list:
 
 #8. Connectivity verification to check if any chemical bond was made or broken during DFT optimization
 if 8 in list:
-	exit("WIP...")
+	print("8. Connectivity verification to check if any chemical bond was made or broken during DFT optimization")
+	print("On this process, you will be asked to provide a folder with structures optimized with DFT,")
+	print("as well  as  a reference structure that has the  expected chemical formula. This structure")
+	print("can be buld specificaly for this finality, just take care to preserve the atomic ordering.")
+	cont=input("Press any key to continue if you have this information ready...")
+	os.system("python3 filters/connectivity.py")
 	
-
 #9. K-means selection of nanoclusters to post optimization via DFT
 if 9 in list:
 	exit("WIP...")
