@@ -42,7 +42,7 @@ print("""    ~?JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ?!
    7PPPPPPPPPPPPPPG! .~~~~: :PPPPPPPPPPPPPPPY.   
 """)
 
-print("\n\n         QTNano Cluster Assembler \n\n"
+print("\n\n         QTNano Cluster Assembler \n\n")
 
 #1. Core generation that can be performed via
 ##Permutation
