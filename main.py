@@ -6,6 +6,7 @@ import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 
 
+
 if len(sys.argv) != 3:
     print("\nUsage: \n")
     print("\t\t$ python main.py 1 10 \n\n")
@@ -21,6 +22,27 @@ if start<1 or end>10 or start>end:
     print("\n\n ERROR: The interval you provided is not valid...\n\n")
     exit() 
 
+	
+	
+print("""    ~?JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ?!     
+   P&#P55555555555555555555555555555555555B&#:    
+   P&P                                    ?&B:    
+   P&P            ^YPPPPPPPP5!            J&B:    
+   P&P           7#&5??????J#&J           J&B:    
+   P&P          J&#7        ~B&5:         J&B:    
+   P&P   ^!~~~~5&B~          :P&G!~~~~^   J&B:    
+   P&P   JBBBBB##J            !#&BBBBBP.  J&B:    
+   P&P   ......7##J          7##Y......   J&B:    
+   P&P          ~B&5:      .J##?          J&B:    
+   P&P           :P&BGGGGGGG&#!           J&B:    
+   P&P            .!7777777?B#5.          J&B:    
+   P&P                      ^G&G^         J&B:    
+   P&P                       .?!.         ?&B:    
+   P&B?????????????^ .^^^^. .?????????????P&#:    
+   7PPPPPPPPPPPPPPG! .~~~~: :PPPPPPPPPPPPPPPY.   
+""")
+
+print("\n\n         QTNano Cluster Assembler \n\n"
 
 #1. Core generation that can be performed via
 ##Permutation
@@ -128,11 +150,20 @@ if 8 in list:
 	
 #9. K-means selection of nanoclusters to post optimization via DFT
 if 9 in list:
-	exit("WIP...")
+	print("9. K-means selection of nanoclusters to post optimization via DFT")
+	inp1=input("Inform the folder with the result from the Connectivity Filter (standard name is ********):")
+	inp2=input("Inform how many representative structures to select:")
+	os.system("cp filters/kmeans/* .")
+	os.system("python3 silscript.py 1 "+inp1+" "+inp2)
+	os.system("mv "+inp1+"/selected_"+inp1+" to_dft_tight")
+	os.system("rm -rf job_kmeans_new mol.txt silscript.py tools.py")
 
 #10. DFT optimization with tight/strong criteria
 if 10 in list:
-	exit("WIP...")
+	print("10. DFT optimization with tight/strong criteria")
+	print("\nFor generality, this step is to be performed by the user.")
+	print("\n\n\t\t\t Thanks for using our code!!!\n\n")
+	exit("Please, perform the apropriate DFT calculations...")
 	
 	
 exit("---DONE---")
