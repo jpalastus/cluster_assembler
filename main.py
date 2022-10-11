@@ -73,7 +73,7 @@ if 3 in list:
 	
 #4. Ligands distribution around the metalic core
 if 4 in list:
-	print("4. Ligands distribution around the metalic core");
+	print("4. Ligands distribution around the metalic core")
 	print("\nThis step will use the already criated and filtered structures selected in step 3.")
 	print("Check the place where those structures are saved.")
 	inp1=input("Inform the folder with selectec metalic cores:")
@@ -94,17 +94,22 @@ if 4 in list:
 	
 #5. Overlap Filter
 if 5 in list:
+	print("5. Overlap Filter")
 	exit("WIP...")
 
 #6. K-means selection of nanoclusters to optimize via DFT
 if 6 in list:
+	print("6. K-means selection of nanoclusters to optimize via DFT")
 	exit("WIP...")
 
 #7. DFT optimization with light/weak criteria
 if 7 in list:
-	exit("WIP...")
+	print("7. DFT optimization with light/weak criteria")
+	print("\nFor generality, this step is to be performed by the user.")
+	print("Take care of organazing the outiputs as informed on a single folder with all optimized geometries.")
+	exit("Please, perform the apropriate DFT calculations and restart the program at step 8...")
 
-#8. Donnectivity verification to check if any chemical bond was made or broken during DFT optimization
+#8. Connectivity verification to check if any chemical bond was made or broken during DFT optimization
 if 8 in list:
 	exit("WIP...")
 	
