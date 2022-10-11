@@ -112,7 +112,7 @@ if 4 in list:
 	else:
 		inp5=inp2
 		inp6="0"
-		inp7="0.0"
+		inp7="1.0"
 		el2=el1
 	inp8=input("How much samples to generate? ")
 	print("====> Calling $"+"python3  ligands/ligand_distributor_alastus.py "+inp1+" "+inp2+" "+inp3+" "+inp4+" "+el1+" "+inp5+" "+inp6+" "+inp7+" "+el2+" "+inp8)
