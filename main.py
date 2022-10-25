@@ -94,6 +94,16 @@ if 3 in list:
 	os.system("python3  core/clustering.py")
 	
 #4. Ligands distribution around the metalic core
+
+#baseFolder = glob(str(sys.argv[1])+'/*.xyz')
+#inputMol2 = sys.argv[2]
+#num_p1= int(sys.argv[3])
+#min_dist2 = float(sys.argv[4])
+#inputMol3 = sys.argv[5]
+#num_p2 = int(sys.argv[6])
+#min_dist1 = float(sys.argv[7])
+#num_samples = int(sys.argv[8])
+
 if 4 in list:
 	print("4. Ligands distribution around the metalic core")
 	print("\nThis step will use the already criated and filtered structures selected in step 3.")
@@ -102,21 +112,23 @@ if 4 in list:
 	inp2=input("Inform the adress of the XYZ of the first ligand:")
 	inp3=input("Inform how many of this ligand to add:")
 	inp4=input("Inform a trial bondlegth:")
-	el1=input("Chemical specie to bond:")
+	#el1=input("Chemical specie to bond:")
 	test=input("Add a secund ligand? (Y/N)\n")
 	if test=="Y":
 		inp5=input("Inform the adress of the XYZ of the second ligand:")
 		inp6=input("Inform how many of this ligand to add:")
 		inp7=input("Inform a trial bondlegth:")
-		el2=input("Chemical specie to bond:")
+		#el2=input("Chemical specie to bond:")
 	else:
 		inp5=inp2
 		inp6="0"
 		inp7="1.0"
-		el2=el1
+		#el2=el1
 	inp8=input("How much samples to generate? ")
-	print("====> Calling $"+"python3  ligands/ligand_distributor_alastus.py "+inp1+" "+inp2+" "+inp3+" "+inp4+" "+el1+" "+inp5+" "+inp6+" "+inp7+" "+el2+" "+inp8)
-	os.system("python3  ligands/ligand_distributor_alastus.py "+inp1+" "+inp2+" "+inp3+" "+inp4+" "+el1+" "+inp5+" "+inp6+" "+inp7+" "+el2+" "+inp8)
+	#print("====> Calling $"+"python3  ligands/ligand_distributor_alastus.py "+inp1+" "+inp2+" "+inp3+" "+inp4+" "+el1+" "+inp5+" "+inp6+" "+inp7+" "+el2+" "+inp8)
+	#os.system("python3  ligands/ligand_distributor_alastus.py "+inp1+" "+inp2+" "+inp3+" "+inp4+" "+el1+" "+inp5+" "+inp6+" "+inp7+" "+el2+" "+inp8)
+	print("====> Calling $"+"python3  ligands/ligand_distributor3.py "+inp1+" "+inp2+" "+inp3+" "+inp4+" "+inp5+" "+inp6+" "+inp7+" "+inp8)
+	os.system("python3  ligands/ligand_distributor3.py "+inp1+" "+inp2+" "+inp3+" "+inp4+" "+inp5+" "+inp6+" "+inp7+" "+inp8)
 	
 #5. Overlap Filter
 if 5 in list:
