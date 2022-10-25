@@ -55,7 +55,7 @@ for fin in baseFolder:
 
 end = time.time()
 tot=end - start
-print('para ler '+str(tot))
+#print('para ler '+str(tot))
 
 
 if opt in range(2,4):
@@ -180,8 +180,7 @@ ax2.set_ylabel("Feature space for the 2nd feature")
 plt.suptitle(("Silhouette analysis for k-means clustering on sample data of "+str(sys.argv[2])+" " " with n_clusters = %d" % params['n_clusters']), fontsize=14, fontweight='bold')
 
 #plt.show()
-plt.savefig('silAl55_'+str(sys.argv[2])+'.png', format='png')
-print("Al55")
+plt.savefig('sil_'+str(sys.argv[2])+'.png', format='png')
 
 
 
@@ -224,8 +223,8 @@ else:
         selected1.append(int(ids[sel]))
         clusters.append(idsIn)
 
-print("Selected [op1]: ")
-print(selected1)
+#print("Selected [op1]: ")
+#print(selected1)
 
 a=selected1
 
@@ -233,99 +232,9 @@ os.system('mkdir '+str(sys.argv[2])+'/selected_'+str(sys.argv[2]))
 
 for y in a:
     
-    print(y)
+    #print(y)
     yy=baseFolder[y-1]
-
     print(yy)
 
     os.system('cp  '+str(yy)+' '+str(sys.argv[2])+'/selected_'+str(sys.argv[2])) #elements may change according to filenames
 
-
-#end = time.time()
-#tot=end - start
-#print('tempo total '+str(tot))
-
-
-exit()
-"""
-#exit()
-
-# plotting PCA illustration
-import matplotlib
-#matplotlib.use("TkAgg")
-import matplotlib.pyplot as plt
-print("oi 5")
-
-
-#pca = PCA(n_components=2)########################
-pca = TSNE(n_components=2)
-
-reduced_X = pca.fit_transform(X)
-#print(pca.explained_variance_ratio_)####################### 
-# exit() 
-
-kmeans.fit(reduced_X)
-
-print("oi 6")
- 
-# Step size of the mesh.
-h = 0.01
-x_min, x_max = reduced_X[:, 0].min() - 1, reduced_X[:, 0].max() + 1
-y_min, y_max = reduced_X[:, 1].min() - 1, reduced_X[:, 1].max() + 1
-xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-
-print("oi 7")
-
-# Obtain labels for each point in mesh. Use last trained model.
-
-#Z = kmeans.predict(np.c_[xx.ravel(), yy.ravel()])
-
-# Put the result into a color plot
-#Z = Z.reshape(xx.shape)
-
-plt.figure(1)
-plt.clf()
-print("oi 8")
-
-#plt.imshow(Z, interpolation='nearest',
-#           extent=(xx.min(), xx.max(), yy.min(), yy.max()),
-#           cmap=plt.cm.Paired,
-#           aspect='auto', origin='lower')
-
-plt.plot(reduced_X[:, 0], reduced_X[:, 1], 'k.', markersize=3)
-# Plot the centroids as a white X
-centroids = kmeans.cluster_centers_
-
-plt.scatter(centroids[:, 0], centroids[:, 1],
-            marker='x', s=75, linewidths=3,
-            color='b', zorder=10)
-print("oi 9")
-
-selected1 = np.array(selected1)-1
-for i in selected1:
-    plt.text(reduced_X[i, 0], reduced_X[i, 1], str(i+1),fontsize=10)
-
-#y = [2.56422, 3.77284, 3.52623, 3.51468, 3.02199]
-#z = [0.15, 0.3, 0.45, 0.6, 0.75]
-#n = [58, 651, 393, 203, 123]
-
-#fig, ax = plt.subplots()
-#ax.scatter(z, y)
-
-#for i, txt in enumerate(n):
-#    ax.annotate(txt, (z[i], y[i]))
-
-
-plt.title('Clustering Result (PCA-reduced data)\n'
-          'Centroids are marked with white cross')
-plt.xlim(x_min, x_max)
-plt.ylim(y_min, y_max)
-plt.xticks(())
-plt.yticks(())
-
-end = time.time()
-tot=end - start
-print(str(tot))
-#plt.show()
-plt.savefig('clust'+str(sys.argv[2])+'.pdf', format='pdf')
-"""
