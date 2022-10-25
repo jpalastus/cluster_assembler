@@ -170,7 +170,7 @@ if 8 in list:
 #9. K-means selection of nanoclusters to post optimization via DFT
 if 9 in list:
 	print("9. K-means selection of nanoclusters to post optimization via DFT")
-	inp1=input("Inform the folder with the result from the Connectivity Filter (standard name is ********):")
+	inp1=input("Inform the folder with the result from the Connectivity Filter (standard name is final_representatives):")
 	inp2=input("Inform how many representative structures to select:")
 	os.system("cp filters/kmeans/* .")
 	os.system("python3 silscript.py 1 "+inp1+" "+inp2)
