@@ -24,7 +24,7 @@ print(ideal_matrix)
 ncomplexos=[]
 estruturas=[]
 #for file in sorted(glob.glob('H3Cu6Zn5Cps5Mes_structures_pbe/*.xyz')):
-for file in sorted(glob.glob(folder+/*.xyz')):
+for file in sorted(glob.glob(folder+'/*.xyz')):
 
   mol=read(file)
   cutOff = neighborlist.natural_cutoffs(mol)
