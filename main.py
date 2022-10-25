@@ -94,16 +94,8 @@ if 3 in list:
 	os.system("python3  core/clustering.py")
 	
 #4. Ligands distribution around the metalic core
-
-#baseFolder = glob(str(sys.argv[1])+'/*.xyz')
-#inputMol2 = sys.argv[2]
-#num_p1= int(sys.argv[3])
-#min_dist2 = float(sys.argv[4])
-#inputMol3 = sys.argv[5]
-#num_p2 = int(sys.argv[6])
-#min_dist1 = float(sys.argv[7])
-#num_samples = int(sys.argv[8])
-
+### OBS.: The comented ines herever to experimental version of the ligand distributor that tries to bias the element where the ligand will be fixed.
+###       IT IS A EXPERIMENTAL FEATURE AND SHOULD NOT BE USED (UNLESS YOU ARE SURE AND DID SOME PROPER TESTS). 
 if 4 in list:
 	print("4. Ligands distribution around the metalic core")
 	print("\nThis step will use the already criated and filtered structures selected in step 3.")
