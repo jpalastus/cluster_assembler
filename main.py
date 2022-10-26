@@ -10,9 +10,9 @@ import matplotlib.pyplot as plt
 if len(sys.argv) != 3:
     print("\nUsage: \n")
     print("\t\t$ python main.py 1 10 \n\n")
-    print("- 1 and 10 represent the initial end final step you whant to execute.")
+    print("- Steps 1 and 10 represent the initial end final steps you whant to execute.")
     print("- Steps 7 and 10 will stop the code and call for external intervention.")
-    print("- The work folder most me the provided cluster_assembler (or a copy).")
+    print("- The work folder must be provided, i.e., cluster_assembler (or a copy).")
     exit()
 
 start=int(sys.argv[1])
@@ -48,28 +48,28 @@ print("\n\n         QTNano Cluster Assembler \n\n")
 ##Permutation
 ##ABCluster
 if 1 in list:
-	print("1. Metalic Core Generation:")
-	print("\t 1 - Already generated using external source.")
-	print("\t 2 - Generate now via abcluster [advanced].\n")
+	print("1. Core Generation:")
+	print("\t 1 - Already generated using an external source.")
+	print("\t 2 - Generate now via ABCluster [advanced].\n")
 	option = input("Type your option: ")
 	if int(option)==1:
 		adress=input("Type the adress: ")
 	if int(option)==2:
 		print("""
 ##############################################################################
-##  Autor comments:                                                         ##
-##   ABCluster is a very usifull tool that needs some training to be used.  ##
-##  We strogly recomend the user to visit                                   ##
-##                 http://www.zhjun-sci.com/abcluster/doc/                  ##
-##  and try to unsderstand exactly how the program works, how to install it ##
-##  and to run some tests before using it here                              ##
-##  We thank Zhang's group for making this incredible tool available or the ##
-##  materials community!                                                    ##
+##  Autors comments:                                                        ##
+##  ABCluster is a very useful and powerful software, developed by Jun      ##
+## Zhang to perform global optimization and conformation search. Therefore, ##
+## we strogly recomend the user to visit the following site for additional  ##
+## informations about the software functionalization:                       ##               
+##                 http://www.zhjun-sci.com/abcluster/doc/                  ## 
+## Finally, we thank Zhang's group for making this incredible tool          ##
+## available for the materials community!                                   ##
 ##############################################################################""")
 		os.system("cd core && python3 abcluster_unary.py")
 		print("\nThe submission script in cluster_assembler/core/job.pbs will be executed now.")
-		print("The version originaly there was set for a very specific computational facility,")
-		print("and probably will need some in house adaptations to be runned.\n")
+		print("This original version  was set for a very specific computational facility,")
+		print("and probably will need some in-house adaptations to be runned.\n")
 		cont=input("If the script is set, press any key to continue...")
 		os.system("python3 core/abcluster_submission.py cube")
 		adress="all_xyz"
@@ -79,7 +79,7 @@ if 1 in list:
 		exit("Invalid input...")
 	
 
-#2. Connectivity test to exclude systems that not correspond to the expect number of metalic atoms
+#2. Connectivity test to exclude systems that not correspond to the expect number of core atoms
 if 2 in list:
 	print("2. Connectivity test:")
 	os.system("python3  core/connectivity.py "+adress)
@@ -93,29 +93,29 @@ if 3 in list:
 		os.system("mv "+adress+" all_xyz ")
 	os.system("python3  core/clustering.py")
 	
-#4. Ligands distribution around the metalic core
-### OBS.: The comented ines herever to experimental version of the ligand distributor that tries to bias the element where the ligand will be fixed.
-###       IT IS A EXPERIMENTAL FEATURE AND SHOULD NOT BE USED (UNLESS YOU ARE SURE AND DID SOME PROPER TESTS). 
+#4. Ligands distribution around the core
+### P.S.: The following lines are experimental version of the ligand distributor that tries to bias the element where the ligand will be fixed.
+###       IT IS ON DEVELOPMENT AND SHOULD NOT BE USED (UNLESS YOU ARE SURE AND DID SOME PREVIOUS PROPER TESTS). 
 if 4 in list:
-	print("4. Ligands distribution around the metalic core")
-	print("\nThis step will use the already criated and filtered structures selected in step 3.")
-	print("Check the place where those structures are saved.")
-	print("\nYou would like to indicate in which atomic species the ligand should be attached?(EXPERIMENTAL FEATURE)")
+	print("4. Ligands distribution around the core")
+	print("\nThis step will use the already created and filtered structures selected in Step 3.")
+	print("Please, check the place where those structures are saved.")
+	print("\nWould you like to indicate in which atomic species the ligand should be attached?(EXPERIMENTAL FEATURE)")
 	option=input("Type Y/N (***Y implies in a W.I.P. feature***):")
-	inp1=input("Inform the folder with selectec metalic cores:")
-	print("The XYZ files with the ligands should be prepered as follows:")
-	print("   1) The origen ((0,0,0)) should be the point from which the ligand will be bond.")
-	print("   2) The negative x direction should represent the direction in wich the ligand will be attached to the cluster.")
+	inp1=input("Inform the folder with selected cores:")
+	print("The XYZ files with the ligands should be prepared as follows:")
+	print("   1) The origen ((0,0,0)) should be the point from which the ligand will be bind.")
+	print("   2) The negative x direction should represent the direction in which the ligand will be attached to the cluster.")
 	inp2=input("Inform the adress of the XYZ of the first ligand:")
 	inp3=input("Inform how many of this ligand to add:")
-	inp4=input("Inform a trial bondlegth:")
+	inp4=input("Inform a trial bondlength:")
 	if option=="Y":
 		el1=input("Chemical specie to bond:")
-	test=input("Add a secund ligand? (Y/N)\n")
+	test=input("Add a second ligand? (Y/N)\n")
 	if test=="Y":
 		inp5=input("Inform the adress of the XYZ of the second ligand:")
 		inp6=input("Inform how many of this ligand to add:")
-		inp7=input("Inform a trial bondlegth:")
+		inp7=input("Inform a trial bondlength:")
 		if option=="Y":
 			el2=input("Chemical specie to bond:")
 	else:
@@ -138,13 +138,13 @@ if 5 in list:
 	os.system("cp filters/overlapping.py geom/.")
 	os.system("cd geom && python3 overlapping.py")
 	os.system("cp -r geom/filtered filtered_step_5")
-	print("\nBefore continuing, check filtered_step_5 to see if all XYZ have been processed.")
+	print("\nBefore continuing, check the filtered_step_5 folder to see if all XYZ have been processed.")
 	cont=input("If yes, press any key to continue...")
 
 #6. K-means selection of nanoclusters to optimize via DFT
 if 6 in list:
-	print("6. K-means selection of nanoclusters to optimize via DFT")
-	inp1=input("Inform the folder with the result from the Overlap Filter (standard name is filtered_step_5):")
+	print("6. K-means selection to optimize via DFT")
+	inp1=input("Inform the folder with previous results from the Overlap Filter (standard name is filtered_step_5):")
 	inp2=input("Inform how many representative structures to select:")
 	os.system("cp filters/kmeans/* .")
 	os.system("python3 silscript.py 1 "+inp1+" "+inp2)
@@ -154,24 +154,24 @@ if 6 in list:
 #7. DFT optimization with light/weak criteria
 if 7 in list:
 	print("7. DFT optimization with light/weak criteria")
-	print("\nFor generality, this step is to be performed by the user.")
-	print("Take care of organazing the outiputs as informed on a single folder with all optimized geometries.")
-	exit("Please, perform the apropriate DFT calculations and restart the program at step 8...")
+	print("\nFor generality, this step is to be external performed by the user.")
+	print("Please, pay attention of outputs organizatioan as should be informed on a single folder with all optimized geometries.")
+	exit("Please, perform the DFT calculations and restart the program at Step 8...")
 
 #8. Connectivity verification to check if any chemical bond was made or broken during DFT optimization
 if 8 in list:
-	print("8. Connectivity verification to check if any chemical bond was made or broken during DFT optimization")
-	print("On this process, you will be asked to provide a folder with structures optimized with DFT,")
-	print("as well  as  a reference structure that has the  expected chemical formula. This structure")
-	print("can be buld specificaly for this finality, just take care to preserve the atomic ordering.")
-	cont=input("Press any key to continue if you have this information ready...")
+	print("8. Connectivity filter to verify if any chemical bond was made or broken during DFT optimization")
+	print("On this process, you will be asked to provide a folder with the DFT optmized structures,")
+	print("as well as a reference structure that has the expected chemical formula. This structure")
+	print("can be buld specifically for this finality, just pay attention to preserve the atomic ordering.")
+	cont=input("Press any key to continue, if you have this information ready...")
 	os.system("python3 filters/connectivity.py")
 	
-#9. K-means selection of nanoclusters to post optimization via DFT
+#9. K-means selection to post-optimization via DFT 
 if 9 in list:
-	print("9. K-means selection of nanoclusters to post optimization via DFT")
-	inp1=input("Inform the folder with the result from the Connectivity Filter (standard name is final_representatives):")
-	inp2=input("Inform how many representative structures to select:")
+	print("9. K-means selection to post-optimization via DFT")
+	inp1=input("Inform the folder with the results from the Connectivity Filter (standard name is final_representatives):")
+	inp2=input("Inform how many representatives structures to select:")
 	os.system("cp filters/kmeans/* .")
 	os.system("python3 silscript.py 1 "+inp1+" "+inp2)
 	os.system("mv "+inp1+"/selected_"+inp1+" to_dft_tight")
@@ -180,9 +180,9 @@ if 9 in list:
 #10. DFT optimization with tight/strong criteria
 if 10 in list:
 	print("10. DFT optimization with tight/strong criteria")
-	print("\nFor generality, this step is to be performed by the user.")
+	print("\nFor generality, this step should be performed externally by the user.")
 	print("\n\n\t\t\t Thanks for using our code!!!\n\n")
-	exit("Please, perform the apropriate DFT calculations...")
+	exit("Please, perform the DFT calculations...")
 	
 	
 exit("---DONE---")
