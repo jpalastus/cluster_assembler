@@ -90,8 +90,8 @@ if 2 in list:
 #3. K-means clustering to select relevant cores to use
 if 3 in list:
 	print("3. K-means clustering to select relevant cores to use:")
-	if adress != "all_xyz":
-		os.system("mv "+adress+" all_xyz ")
+	#if adress != "all_xyz":
+	#	os.system("mv "+adress+" all_xyz ")
 	os.system("python3  core/clustering.py")
 	
 #4. Ligands distribution around the core
