@@ -23,5 +23,5 @@ for file in files:
 	matrix = neighborList.get_connectivity_matrix(sparse=False)
 	n_components, component_list = sparse.csgraph.connected_components(matrix)
 	if n_components==1:
-		shutil.copy(file,"filter_result/"+file.split("\\")[1])
+		shutil.copy(file,"filter_result/"+file.split("/")[1])
 	
