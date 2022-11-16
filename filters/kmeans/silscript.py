@@ -88,7 +88,7 @@ from sklearn.manifold import TSNE
 from sklearn.metrics import silhouette_samples, silhouette_score
 
 
-X = StandardScaler().fit_transform(X) 
+X = StandardScaler().fit_transform(X.real) 
 
 tsnee = TSNE(n_components=2) ####
 
