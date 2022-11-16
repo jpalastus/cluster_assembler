@@ -17,6 +17,7 @@ if len(sys.argv) != 3:
 
 start=int(sys.argv[1])
 end=int(sys.argv[2])
+adress="xxxxx"
 list=range(start,end+1)
 if start<1 or end>10 or start>end:
     print("\n\n ERROR: The interval you provided is not valid...\n\n")
