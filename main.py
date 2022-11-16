@@ -90,8 +90,8 @@ if 2 in list:
 #3. K-means clustering to select relevant cores to use
 if 3 in list:
 	print("3. K-means clustering to select relevant cores to use:")
-	#if adress != "all_xyz":
-	#	os.system("mv "+adress+" all_xyz ")
+#	if adress != "all_xyz":
+#		os.system("mv "+adress+" all_xyz ")
 	os.system("python3  core/clustering.py")
 	
 #4. Ligands distribution around the core
@@ -150,7 +150,7 @@ if 6 in list:
 	os.system("cp filters/kmeans/* .")
 	os.system("python3 silscript.py 1 "+inp1+" "+inp2)
 	os.system("mv "+inp1+"/selected_"+inp1+" to_dft_light")
-	os.system("rm -rf job_kmeans_new mol.txt silscript.py tools.py")
+	os.system("rm -rf job_kmeans_new silscript.py tools.py")
 
 #7. DFT optimization with light/weak criteria
 if 7 in list:
@@ -176,7 +176,7 @@ if 9 in list:
 	os.system("cp filters/kmeans/* .")
 	os.system("python3 silscript.py 1 "+inp1+" "+inp2)
 	os.system("mv "+inp1+"/selected_"+inp1+" to_dft_tight")
-	os.system("rm -rf job_kmeans_new mol.txt silscript.py tools.py")
+	os.system("rm -rf job_kmeans_new silscript.py tools.py")
 
 #10. DFT optimization with tight/strong criteria
 if 10 in list:
