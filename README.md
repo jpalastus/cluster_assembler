@@ -21,7 +21,7 @@ This is a WIP project for QTNano's cluster-ligands assembling proseadure. Contri
 
 7. DFT optimization with light/weak criteria
 
-8. Donnectivity verification to check if any chemical bond was made or broken during DFT optimization
+8. Connectivity verification to check if any chemical bond was made or broken during DFT optimization
 
 9. K-means  selection of nanoclusters to post optimization via DFT
 
@@ -37,4 +37,3 @@ python main.py 1 10
 ```
 1 and 10 in this command can be changed to the appropriate interval of tasks on the list above.
 
-*NOTE: 3-10 ARE IN HOUSE CODES, NOT HERE YET...*
