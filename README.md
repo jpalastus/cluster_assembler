@@ -1,3 +1,4 @@
+![alt text](https://qtnano.iqsc.usp.br/wp-content/themes/qtnano/images/logo_foot2.png)
 # cluster_assembler
 
 This is a WIP project for QTNano's cluster-ligands assembling proseadure. Contributions ongoing.
@@ -6,16 +7,16 @@ This is a WIP project for QTNano's cluster-ligands assembling proseadure. Contri
 ## General Process for Nanoclusters Generation
 
 1. Core generation that can be performed via
- 	- Permutation
- 	- ABCluster
+ 	- User provided structures
+ 	- Supervised use of ABCluster
 
-2. Connectivity test to exclude systems that not correspond to the expect number of metalic atoms
+2. Connectivity test to exclude systems that not correspond to the expected chemical formula
 
 3. K-means clustering to select relevant cores to use
 
 4. Ligands distribution around the metalic core
 
-5. Overlap Filter 
+5. Filter to remuve structures with overlaping atoms 
 
 6. K-means selection of nanoclusters to optimize via DFT
 
